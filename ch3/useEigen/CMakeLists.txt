@@ -4,8 +4,8 @@ project(useEigen)
 set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_FLAGS "-O3")
 
-set(THIRDPARTY_PATH "${CMAKE_CURRENT_LIST_DIR}/../../thirdparty")
+set(THIRDPARTY_OUT_PATH "${CMAKE_CURRENT_LIST_DIR}/../../out")
 
 # 添加Eigen头文件
-include_directories("${THIRDPARTY_PATH}/eigen")
+include_directories("${THIRDPARTY_OUT_PATH}/include/eigen3")
 add_executable(eigenMatrix eigenMatrix.cpp)
