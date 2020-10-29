@@ -1,0 +1,2 @@
+#pragma once
+#cmakedefine CH3_ROOT "@CH3_ROOT@"

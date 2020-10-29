@@ -7,13 +7,15 @@ set(CMAKE_CXX_FLAGS "-O3")
 
 set(THIRDPARTY_OUT_PATH "${CMAKE_CURRENT_LIST_DIR}/../out")
 
+# Eigen
+include_directories("${THIRDPARTY_OUT_PATH}/include/eigen3")
+
 # Add glfw
 set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
 set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
 add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/glfw" "${PROJECT_BINARY_DIR}/glfw")
 include_directories("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/glfw/include")
-
 
 # X3D (currently not public)
 include_directories("${THIRDPARTY_OUT_PATH}/x3d/include")

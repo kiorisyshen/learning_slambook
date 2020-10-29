@@ -56,7 +56,7 @@ GLFWwindow *glfwEntry::initialize(std::string winTittle, int winWidth, int winHe
     glfwSetScrollCallback(w, scroll_callback);
 
     X3D::X3DConfig x3dConfig;
-    x3dConfig.logLvl     = X3D::LOG_LEVEL::trace;
+    x3dConfig.logLvl     = X3D::LOG_LEVEL::info;
     x3dConfig.viewWidth  = winWidth;
     x3dConfig.viewHeight = winHeight;
     x3dConfig.color_bg_r = bgColorR;
