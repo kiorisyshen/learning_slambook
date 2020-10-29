@@ -7,8 +7,8 @@ BUILD_TYPE=Release
 mkdir -p $PROJECT_ROOT/build
 rm -rf $PROJECT_ROOT/build/*
 
-mkdir -p $PROJECT_ROOT/out
-rm -rf $PROJECT_ROOT/out/*
+# mkdir -p $PROJECT_ROOT/out
+# rm -rf $PROJECT_ROOT/out/*
 
 # Build Eigen - (Header only though)
 mkdir -p $PROJECT_ROOT/build/eigen
