@@ -45,6 +45,8 @@ int main() {
     cout << "read total " << poses.size() << " pose entries" << endl;
 
     DrawTrajectory(poses);
+
+    return 0;
 }
 
 /*******************************************************************************************/

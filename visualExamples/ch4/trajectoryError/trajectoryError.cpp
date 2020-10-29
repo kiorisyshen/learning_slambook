@@ -49,6 +49,7 @@ int main() {
     cout << "RMSE = " << rmse << endl;
 
     DrawTrajectory(groundtruth, estimated);
+    return 0;
 }
 
 /*******************************************************************************************/

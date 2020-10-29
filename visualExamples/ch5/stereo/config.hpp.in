@@ -1,0 +1,2 @@
+#pragma once
+#cmakedefine CURREXAMPLE_ROOT "@CURREXAMPLE_ROOT@"
