@@ -14,3 +14,7 @@ Code for learning slambook: https://github.com/gaoxiang12/slambook2
   - stereoVision
 
     <img src="result/ch5/stereoVision.gif" width="480"/>
+
+  - rgbd-joinMap
+
+    <img src="result/ch5/rgbdJoinMap.gif" width="480"/>
