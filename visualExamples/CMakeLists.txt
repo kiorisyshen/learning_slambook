@@ -6,6 +6,7 @@ set(CMAKE_BUILD_TYPE "Release")
 set(CMAKE_CXX_FLAGS "-O3")
 
 set(THIRDPARTY_OUT_PATH "${CMAKE_CURRENT_LIST_DIR}/../out")
+include_directories("${THIRDPARTY_OUT_PATH}/include/")
 
 # Eigen
 include_directories("${THIRDPARTY_OUT_PATH}/include/eigen3")
@@ -26,3 +27,5 @@ include_directories("${CMAKE_CURRENT_LIST_DIR}")
 add_subdirectory(common)
 
 add_subdirectory(ch3)
+
+add_subdirectory(ch4)

@@ -20,7 +20,7 @@ using namespace std;
 using namespace Eigen;
 
 // path to trajectory file
-string trajectory_file = string(CH3_ROOT) + string("/trajectory.txt");
+string trajectory_file = string(CURREXAMPLE_ROOT) + string("/trajectory.txt");
 // drawing with x3d
 X3D::X3DGate x3dGate;
 
