@@ -22,10 +22,6 @@ include_directories("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/glfw/include")
 include_directories("${THIRDPARTY_OUT_PATH}/x3d/include")
 set(X3D_LIBRARY "${THIRDPARTY_OUT_PATH}/x3d/libX3D.a")
 
-# OpenCV
-find_package(OpenCV REQUIRED)
-include_directories(${OpenCV_INCLUDE_DIRS})
-
 # subdirectories
 include_directories("${CMAKE_CURRENT_LIST_DIR}")
 add_subdirectory(common)
@@ -35,3 +31,5 @@ add_subdirectory(ch3)
 add_subdirectory(ch4)
 
 add_subdirectory(ch5)
+
+add_subdirectory(ch6)
