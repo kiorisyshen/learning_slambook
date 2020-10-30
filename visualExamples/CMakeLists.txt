@@ -11,16 +11,16 @@ include_directories("${THIRDPARTY_OUT_PATH}/include/")
 # Eigen
 include_directories("${THIRDPARTY_OUT_PATH}/include/eigen3")
 
-# Add glfw
-set(GLFW_BUILD_DOCS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_TESTS OFF CACHE BOOL "" FORCE)
-set(GLFW_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-add_subdirectory("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/glfw" "${PROJECT_BINARY_DIR}/glfw")
-include_directories("${CMAKE_CURRENT_LIST_DIR}/../thirdparty/glfw/include")
+# glfw
+set(glfw3_DIR "${THIRDPARTY_OUT_PATH}/lib/cmake/glfw3")
+find_package(glfw3 REQUIRED)
 
 # X3D (currently not public)
 include_directories("${THIRDPARTY_OUT_PATH}/x3d/include")
 set(X3D_LIBRARY "${THIRDPARTY_OUT_PATH}/x3d/libX3D.a")
+
+# g2o
+set(g2o_DIR "${THIRDPARTY_OUT_PATH}/lib/cmake/g2o")
 
 # subdirectories
 include_directories("${CMAKE_CURRENT_LIST_DIR}")

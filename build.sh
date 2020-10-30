@@ -34,3 +34,28 @@ cmake \
 
 cmake --build . --config $BUILD_TYPE --target install
 cd -
+
+# Build glfw
+mkdir -p $PROJECT_ROOT/build/glfw
+cd $PROJECT_ROOT/build/glfw
+cmake \
+    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+    -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/out \
+    -DGLFW_BUILD_DOCS=OFF \
+    -DGLFW_BUILD_TESTS=OFF \
+    -DGLFW_BUILD_EXAMPLES=OFF \
+    $PROJECT_ROOT/thirdparty/glfw
+
+cmake --build . --config $BUILD_TYPE --target install
+cd -
+
+# Build g2o
+mkdir -p $PROJECT_ROOT/build/g2o
+cd $PROJECT_ROOT/build/g2o
+cmake \
+    -DCMAKE_BUILD_TYPE=$BUILD_TYPE \
+    -DCMAKE_INSTALL_PREFIX=$PROJECT_ROOT/out \
+    $PROJECT_ROOT/thirdparty/g2o
+
+cmake --build . --config $BUILD_TYPE --target install -- -j8
+cd -
