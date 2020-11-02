@@ -22,11 +22,11 @@ static void cursor_position_callback(GLFWwindow *window, double xpos, double ypo
         return;
     }
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_LEFT) == GLFW_PRESS) {
-        g_pX3DGate->Rotate(g_pX3DGate->GetDefaultCam(), 0.5f * float(xpos - cursorPosX_old), 0.5f * float(ypos - cursorPosY_old));
+        g_pX3DGate->RotateScreen(g_pX3DGate->GetDefaultCam(), 0.5f * float(xpos - cursorPosX_old), 0.5f * float(ypos - cursorPosY_old));
     }
 
     if (glfwGetMouseButton(window, GLFW_MOUSE_BUTTON_MIDDLE) == GLFW_PRESS) {
-        g_pX3DGate->Move(g_pX3DGate->GetDefaultCam(), 0.03f * float(xpos - cursorPosX_old), 0.03f * float(ypos - cursorPosY_old));
+        g_pX3DGate->MoveScreenXY(g_pX3DGate->GetDefaultCam(), 0.03f * float(xpos - cursorPosX_old), 0.03f * float(ypos - cursorPosY_old));
     }
 
     cursorPosX_old = xpos;
@@ -37,7 +37,7 @@ void scroll_callback(GLFWwindow *window, double xoffset, double yoffset) {
     if (ImGui::IsAnyWindowFocused()) {
         return;
     }
-    g_pX3DGate->Move(g_pX3DGate->GetDefaultCam(), float(yoffset));
+    g_pX3DGate->MoveScreenZ(g_pX3DGate->GetDefaultCam(), float(yoffset));
 }
 
 GLFWwindow *glfwEntry::initialize(std::string winTittle, int winWidth, int winHeight, float bgColorR, float bgColorG, float bgColorB, X3D::X3DGate *x3dGate) {
@@ -56,17 +56,18 @@ GLFWwindow *glfwEntry::initialize(std::string winTittle, int winWidth, int winHe
     glfwSetScrollCallback(w, scroll_callback);
 
     X3D::X3DConfig x3dConfig;
-    x3dConfig.logLvl     = X3D::LOG_LEVEL::info;
-    x3dConfig.viewWidth  = winWidth;
-    x3dConfig.viewHeight = winHeight;
-    x3dConfig.color_bg_r = bgColorR;
-    x3dConfig.color_bg_g = bgColorG;
-    x3dConfig.color_bg_b = bgColorB;
+    x3dConfig.logLvl        = X3D::LOG_LEVEL::info;
+    x3dConfig.viewWidth     = winWidth;
+    x3dConfig.viewHeight    = winHeight;
+    x3dConfig.color_bg_r    = bgColorR;
+    x3dConfig.color_bg_g    = bgColorG;
+    x3dConfig.color_bg_b    = bgColorB;
+    x3dConfig.loadProc_glfw = (X3D::GLFWloadproc)glfwGetProcAddress;
 
     g_pX3DGate = x3dGate;
     winWIDTH   = winWidth;
     winHEIGHT  = winHeight;
-    g_pX3DGate->Initialize(x3dConfig, (GLADloadproc)glfwGetProcAddress);
+    g_pX3DGate->Initialize(x3dConfig);
 
     // imgui glfw setup
     ImGui_ImplGlfw_InitForOpenGL(w, true);
@@ -87,7 +88,7 @@ void glfwEntry::beginFrame(GLFWwindow *w) {
 
     // imgui glfw tick
     ImGui_ImplGlfw_NewFrame();
-    g_pX3DGate->newFrame_IMGUI();
+    g_pX3DGate->NewFrame_IMGUI();
 }
 
 void glfwEntry::endFrame(GLFWwindow *w) {

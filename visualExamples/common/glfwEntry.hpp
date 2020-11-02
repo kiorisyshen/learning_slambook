@@ -14,7 +14,7 @@
 #include <GLFW/glfw3.h>
 
 #include "glad/glad.h"
-#include "x3d_linux.hpp"
+#include "x3d_cpp.hpp"
 
 #include "imgui.h"
 #include "imgui_impl_glfw.h"
